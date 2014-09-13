@@ -1,0 +1,93 @@
+.calendar-widget {
+  list-style: none;
+  padding: 0;
+
+  @include at-breakpoint($layout-xl) {
+    @include span-columns(4, 12);
+  }
+}
+
+.calendar-widget__item {
+  background: #fff;
+  margin: 0 0 2px;
+
+  &:nth-child(even) {
+    background: #f0f0f0;
+  }
+}
+
+.calendar-widget__link {
+  display: table;
+  opacity: .8;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  @include transition(opacity, .2s);
+
+  &:after {
+    background: sprite($icons, arrow-right) no-repeat;
+    color: $color-text;
+    content: '';
+    display: block;
+    height: 100%;
+    margin-top: (- image-height(sprite-file($icons, arrow-right)))/2;
+    opacity: 0;
+    position: absolute;
+      top: 50%;
+      right: -60px;
+    width: image-width(sprite-file($icons, arrow-right));
+
+    @include font-size(60);
+    @include transition(
+      opacity, .6s,
+      right, .3s
+    );
+  }
+
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    &:after {
+      opacity: 1;
+      right: 15px;
+    }
+  }
+}
+
+.calendar-widget__date {
+  background: $color-interactive;
+  color: #fff;
+  display: table-cell;
+  font-weight: bold;
+  height: 100%;
+  line-height: 1;
+  text-align: center;
+  width: 60px;
+}
+
+.calendar-widget__day {
+  @include font-size(30);
+}
+
+.calendar-widget__month {
+  text-transform: uppercase;
+  @include font-size(18);
+}
+
+.calendar-widget__info {
+  display: table-cell;
+  padding: 10px;
+}
+
+.calendar-widget__header {
+  color: $color-text;
+  font-weight: bold;
+  margin: 0;
+  @include font-size(20);
+}
+
+.calendar-widget__subtext {
+  color: $color-text-faded;
+  @include font-size(12);
+}

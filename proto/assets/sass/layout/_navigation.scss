@@ -1,0 +1,49 @@
+// All elements, which are exclusive and native to the navigation, belong here.
+// It can be the main-, touch-, sub- or footer navigation.
+// It's very easy to label an element as a navigation-element.
+// You are encouraged to create similar partials which make sense for your project.
+
+.main-navigation {
+  @extend %container;
+  text-align: center;
+}
+
+.main-navigation__list {
+  margin: 0;
+  padding: 20px 0;
+}
+
+.main-navigation__item {
+  font-weight: bold;
+  display: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 14%; // Evenly divided for each item. Probably could also do some table layout
+  @include font-size(15);
+
+  @include at-breakpoint($layout-xl) {
+    display: inline-block;
+  }
+}
+
+.main-navigation__item--logo {
+  @extend .main-navigation__item;
+  background: url(../images/niko-logo.png) no-repeat 50%;
+  height: 60px;
+}
+
+.main-navigation__link {
+  border-bottom: solid 4px transparent;
+  color: $color-display;
+  display: inline-block;
+  padding: 20px 0;
+  width: 100%;
+
+  @include transition(color, .2s);
+
+  &:hover {
+    border-color: $color-interactive;
+    color: $color-interactive;
+    text-decoration: none;
+  }
+}

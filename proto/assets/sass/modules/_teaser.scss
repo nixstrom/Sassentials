@@ -1,0 +1,70 @@
+.teaser {
+  list-style: none;
+  padding: 0;
+
+
+
+  @include at-breakpoint($layout-xxl) {
+    @include span-columns(4, 12);
+  @include omega;
+  }
+}
+
+.teaser__item {
+  cursor: pointer;
+  margin-bottom: 2px;
+  position: relative;
+  overflow: hidden;
+
+  &:after,
+  &:before {
+    background: $color-interactive;
+    content: '';
+    height: 100%;
+    position: absolute;
+      top: 0; left: 0;
+    opacity: 0;
+    width: 100%;
+
+    @include font-size(30);
+    @include transition(opacity .2s);
+  }
+
+  &:after {
+    background: none;
+    color: #fff;
+    content: '⪢';
+    margin-top: -30px;
+    position: absolute;
+      top: 50%; right: -20px; left: auto;
+    text-align: center;
+    width: auto;
+
+    @include font-size(50);
+    @include transition(opacity .2s, right .2s);
+  }
+
+  &:hover {
+    &:after,
+    &:before {
+      opacity: 1;
+    }
+    &:after {
+      right: 10px;
+    }
+  }
+}
+
+.teaser__header {
+  color: #fff;
+  display: inline-block;
+  margin: 0 20px 0 0;
+  position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.teaser__image {
+  vertical-align: top;
+  width: 100%;
+}

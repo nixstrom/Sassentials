@@ -1,0 +1,29 @@
+{
+  "name": "sassentials",
+  "version": "0.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheNix/rks-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheNix/rks-web/issues"
+  },
+  "homepage": "https://github.com/TheNix/sassentials",
+  "devDependencies": {
+    "compass": "^0.1.0",
+    "gulp": "^3.8.7",
+    "gulp-compass": "^1.3.1",
+    "gulp-concat": "^2.3.4",
+    "gulp-jshint": "^1.8.4",
+    "gulp-notify": "^1.5.0",
+    "gulp-uglify": "^0.3.2",
+    "jshint-stylish": "^0.4.0"
+  }
+}

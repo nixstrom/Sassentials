@@ -1,0 +1,15 @@
+.message-strip {
+  background: $color-interactive;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.message-strip__header {
+  color: #fff;
+  display: inline-block;
+  margin: 0 20px 0 0;
+}
+
+.message-strip__button {
+  @include font-size(18);
+}
