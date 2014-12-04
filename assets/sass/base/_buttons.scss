@@ -1,14 +1,13 @@
 %button {
   background: #333;
   border: 0 none;
+	box-shadow: inset 0 -3px 0 #000;
   color: #fff;
   cursor: pointer;
   padding: 10px 20px;
   position: relative;
-  text-transform: uppercase;
-
-  @include box-shadow(inset 0 -3px 0 #000);
-  @include transition(background .2s, box-shadow .2s, top .2s);
+  text-transform: uppercase; 
+  transition: background .2s, box-shadow .2s, top .2s;
 
   &[disabled] {
     color: #aaa;
@@ -27,37 +26,39 @@ button,
   &:focus { outline: 0 none; }
   &:hover {
     background: #444;
-    @include box-shadow(inset 0 -3px 0 #000);
+    box-shadow: inset 0 -3px 0 #000;
   }
   &:active {
     outline: 0 none;
     top: 1px;
-    @include box-shadow(none);
+    box-shadow: none;
   }
 }
 
 .button-primary {
   @extend %button;
-  @include background(linear-gradient(#1BBFE0, #81E4F7));
-  @include text-shadow(none);
+  background: linear-gradient(#1BBFE0, #81E4F7);
   color: #777;
   font-weight: bold;
+  text-shadow: none;
+
   &:hover,
-  &:active {
-    @include box-shadow(0 0 0 0 rgba(#000, 0));
+  &:active {    
     background: #81E4F7;
+    box-shadow: 0 0 0 0 rgba(#000, 0);
   }
 }
 
 .button-secondary {
   @extend %button;
-  @include background(linear-gradient(#FF6200, #FF9452));
-  @include text-shadow(none);
+  background: linear-gradient(#FF6200, #FF9452);
   color: #777;
   font-weight: bold;
+  text-shadow: none;
+
   &:hover,
   &:active {
-    @include box-shadow(0 0 0 0 rgba(#000, 0));
+    box-shadow: 0 0 0 0 rgba(#000, 0);
     background: #FF9452;
   }
 }

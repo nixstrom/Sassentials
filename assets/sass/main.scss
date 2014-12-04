@@ -9,13 +9,12 @@
 // Settings (imported before Compass stuff to allow overrides of defaults)
 @import "core/settings";
 @import "core/helpers";
+@import "core/palette";
 
-// Compass
+// Libraries
 @import "lib/normalize";
-@import "compass/css3";
 
 // Project partials
-@import "core/palette";
 @import "base/typography";
 @import "base/forms";
 @import "base/tables";
