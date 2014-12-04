@@ -1,0 +1,40 @@
+// ==========================================================================
+// General project settings
+// ==========================================================================
+
+// Turns on grid and breakpoint gauge
+$development: true; // true, false
+
+// ---------------------------------------------------------------------------
+// Susy grid settings
+
+// Default grid settings
+$column-width: 60px;
+$gutter-width: 30px;
+$grid-padding: $gutter-width / 3;
+
+$susy: (
+  columns: 12,
+  column-width: 60px,
+  gutters: 1/2,
+  math: fluid,
+  output: float
+);
+
+
+// ---------------------------------------------------------------------------
+// Breakpoints
+
+$bp-small :    400px;
+$bp-medium:    600px;
+$bp-large :    760px;
+$bp-xlarge:   1024px;
+$bp-xxlarge:  1280px;
+
+
+// ---------------------------------------------------------------------------
+// Sprites
+
+//$icons: sprite-map("icons/*.png",
+//  $icons-right-arrow-spacing: 50px
+//);

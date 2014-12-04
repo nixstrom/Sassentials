@@ -1,0 +1,20 @@
+table { width:100%; }
+
+th {
+  background: #ccc;
+  border-bottom: solid 1px #aaa;
+  font-size: 120%;
+  padding: 5px;
+  text-align: left;
+}
+
+tr {
+  &:nth-child(even) {
+    background: #eee;
+  }
+}
+
+td {
+  border-bottom: solid 1px #aaa;
+  padding: 5px;
+}

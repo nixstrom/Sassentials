@@ -1,0 +1,16 @@
+## Hello human
+
+# NIKKI STRØMSNES
+** Freelance Frontend/UI Developer @ Tinybits
+** w: tinybits.dk
+** e: hello@tinybits.dk
+** t: @TheNix
+
+# Project
+* Date initiated: 28th of May, 2014
+
+# Technology
+* Normalize
+* Sass w/ Compass
+* Susy
+* jQuery

@@ -1,0 +1,43 @@
+// Modules are standalone visual elements.
+// To provide a concrete example, a module might be a modal dialog box, or a button.
+//
+// The modal might have the site’s signature background gradient in the header,
+// it might have a drop shadow around it, it might have a close button in the
+// top right corner, and it might be positioned fixed and centered vertically
+// and horizontally. Each of these four patterns might be used again and again
+// all over the site, so you wouldn’t want to have to recode those patterns each time.
+
+// Grid stuff
+// ==========================================================================
+
+%container {
+  @include container;
+  padding: {
+    left: $grid-padding;
+    right: $grid-padding;
+  }
+}
+
+// Clearfix
+// ==========================================================================
+
+%clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Mixins
+// ==========================================================================
+
+// Custom font-size mixin with px fallback
+@mixin font-size($size) {
+  font-size: $size+px;
+  font-size: ($size/10)+rem;
+}
