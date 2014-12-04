@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";AAAA,IAAK;EACJ,UAAU,ECCE,OAAO;ECiBhB,SAAQ,ECNI,IAA4B;EDMxC,WAAQ,ECqDwB,IAAI;EDrDpC,YAAQ,ECqDuD,IAAI;;EC7DnE,UAAQ;IACN,OAAO,EAAE,GAAG;IACZ,OAAO,EAAE,KAAK;IACd,KAAK,EAAE,IAAI",
-"sources": ["../../temp/css/body.scss","../../temp/css/main.scss","../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/output/support/_rem.scss","../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/language/susy/_container.scss","../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss"],
-"names": [],
-"file": "main.css"
-}

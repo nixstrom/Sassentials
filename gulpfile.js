@@ -6,35 +6,42 @@ var stylish = require('jshint-stylish');
 var compass = require('gulp-compass');
 var notify  = require('gulp-notify');
 
+var browserify = require('gulp-browserify');
+var rename = require('gulp-rename');
+
 
 var paths = {
     scripts: {
-        src:  'temp/js/*.js',
+        src:  'assets/js/*.js',
         dest: 'public/javascripts'
     },
+    coffee: {
+      src:  'assets/js/coffee/**/*.coffee',
+      dest: 'assets/js'
+    },
     styles: {
-        src:  'temp/css/*.scss',
+        src:  'assets/sass/*.scss',
         dest: 'public/stylesheets'
     }
 };
 
 // Magic / more magic
-var development = false;
+var development = true;
 
 // Defaults are for production environment (development = false)
 var compassDefaults = {
   css: paths.styles.dest,
-  sass: 'temp/css',
-  image: 'proto/assets/images',
-  require: ['susy'],
+  sass: 'assets/sass',
+  image: 'assets/images',
+  require: ['susy', 'breakpoint'],
   style: 'compressed'
 }
 
 gulp.task('styles', function () {
   if (development === true) {
-    gulp.src('temp/css/main.scss')
+    gulp.src('assets/sass/main.scss')
       .pipe(compass( compassDefaults ))
-      .pipe(notify({ message: 'Styles task complete- DEVELOPMENT' }));
+      .pipe(notify({ message: 'Styles (DEV) task complete. \n Saved to ' + paths.styles.dest }));
 
   } else {
     // Override defaults, so output is trimmed down
@@ -44,9 +51,20 @@ gulp.task('styles', function () {
 
     gulp.src('temp/css/main.scss')
       .pipe(compass( compassDefaults ))
-      .pipe(notify({ message: 'Styles task complete - PRODUCTION' }));
+      .pipe(notify({ message: 'Styles task complete. \n Saved to ' + paths.styles.dest }));
   }
 });
+
+gulp.task('coffee', function() {
+  gulp.src('assets/js/coffee/app.coffee', { read: false })
+    .pipe(browserify({
+      transform: ['coffeeify'],
+      extensions: ['.coffee']
+    }))
+    .pipe(rename('app.js'))
+    .pipe(gulp.dest('./public/javascripts'))
+});
+
 
 // Scripts task
 gulp.task('scripts', function () {
@@ -67,7 +85,8 @@ gulp.task('scripts', function () {
 
 // Watches files for modifications and reloads
 gulp.task('watch', function() {
-  gulp.watch(paths.styles.src, ['styles']);
+  gulp.watch('assets/sass/**/*.scss', ['styles']);
+  gulp.watch(paths.coffee.src, ['coffee', 'scripts']);
   gulp.watch(paths.scripts.src, ['scripts']);
 });
 
