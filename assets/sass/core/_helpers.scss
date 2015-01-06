@@ -36,8 +36,43 @@
 // Mixins
 // ==========================================================================
 
-// Custom font-size mixin with px fallback
+//Function to calculate rem value from expected pixel value
+@function rem($values...) {
+  // How many values must we loop through?
+  $length: length($values);
+  // Variable to hold our final values
+  $output: '';
+
+  @for $i from 1 through $length {
+    $value: nth($values, $i);
+
+    // If value is 0 or auto, preserve it as is
+    @if $value == 0 or $value == auto {
+      $output: #{$output + $value};
+    }
+    @else {
+      // Convert input "base-pixel-value" to corresponding rem value
+      $value: $value/$base-font-size;
+      $output: #{$output + $value}rem;
+    }
+
+    // Unless it's the last value, add a whitespace
+    @if $i < $length {
+      $output: #{$output + " "};
+    }
+  }
+
+  @return $output;
+}
+
+// Usage ----
+//.foo {
+  //font-size: rem(14);
+  //padding: rem(16, auto, 0, 10);
+//}
+
+
 @mixin font-size($size) {
-  font-size: $size+px;
-  font-size: ($size/10)+rem;
+  $size: $size/$base-font-size;
+  font-size: ($size)+rem;
 }
