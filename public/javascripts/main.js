@@ -61,3 +61,10 @@ App.Namespace = (function() {
 	};
 
 })();
+
+document.onreadystatechange = function () {
+  // Initialize app when document is "ready"
+  if (document.readyState == "complete") {
+    App.Main.initialize();
+  }
+}
